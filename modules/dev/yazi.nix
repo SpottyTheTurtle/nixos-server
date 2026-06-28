@@ -1,4 +1,9 @@
-{ pkgs, osConfig, lib, ... }:
+{
+  pkgs,
+  osConfig,
+  lib,
+  ...
+}:
 
 {
   programs.yazi = {
@@ -19,10 +24,6 @@
         show_hidden = true;
         show_symlink = true;
       };
-    };
-
-    theme = lib.mkIf osConfig.features.noctalia.enable {
-      use = "noctalia";
     };
   };
 }

@@ -31,6 +31,18 @@
     in
     {
       nixosConfigurations = {
+        dev = lib.nixosSystem {
+          system = "x86_64-linux";
+          inherit specialArgs;
+
+          modules = [
+            ./hosts/default/configuration.nix
+            ./hosts/demeter/configuration.nix
+            ./hosts/dev.nix
+            /etc/nixos/hardware-configuration.nix
+          ];
+        };
+
         demeter = lib.nixosSystem {
           system = "x86_64-linux";
           inherit specialArgs;

@@ -17,7 +17,7 @@ in
   home.stateVersion = "23.11";
 
   imports = [
-
+    inputs.lazyvim.homeManagerModules.default
   ]
   ++ use [
     "dev/bat"

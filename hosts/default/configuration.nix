@@ -82,6 +82,7 @@
   services.openssh.enable = true;
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqQ5oSVdm2VwrRatrKCjT7jMqXQRWKk9yT2Bu1RBjHk askosia@laptop"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHRzbBl2yBT8WZC9UyPkbe5WbBdq0ByQI8EERjc10Iu askosia@desktop"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFaLKzlmNCZd+fBvbXdro1QmGAK5L6GlvTlX0fxBGT9D askosia@windows"
   ];
   system.stateVersion = "23.11";

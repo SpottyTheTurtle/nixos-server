@@ -8,19 +8,18 @@
     syntaxHighlighting.enable = true;
     enableCompletion = true;
 
-    #PROMPT='%F{cyan}%n%f@%F{magenta}%m%f %F{blue}%~%f %# '
-    #if command -v fastfetch &> /dev/null; then
-    #  fastfetch
-    #fi
-
     initContent = ''
+      ns() {
+        nix shell "''${@/#/nixpkgs#}"
+      }
 
-
-      if command -v !fastfetch &> /dev/null; then
-        fastfetch -c examples/32
-      fi
-
-      [ -f "${config.home.homeDirectory}/.cache/wal/colors.sh" ] && . "${config.home.homeDirectory}/.cache/wal/colors.sh"
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        command yazi "$@" --cwd-file="$tmp"
+        IFS= read -r -d \'\' cwd < "$tmp"
+        [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+        rm -f -- "$tmp"
+      }
     '';
 
     plugins = [
