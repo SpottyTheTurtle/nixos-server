@@ -8,7 +8,9 @@
   services.caddy = {
     enable = true;
     virtualHosts."localhost".extraConfig = ''
-      respond "OK"
+      root * /srv
+      rewrite * /index.html
+      file_server
     '';
   };
 }

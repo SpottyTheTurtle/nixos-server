@@ -26,7 +26,7 @@
       username = "askosia";
       specialArgs = {
         inherit inputs username;
-        dirName = "nixos";
+        dirName = "nixos-server";
       };
     in
     {
