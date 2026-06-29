@@ -34,12 +34,15 @@
 
   programs.zsh.enable = true;
 
-  zramSwap = {
-    enable = true;
-    priority = 100;
-    algorithm = "lz4";
-    memoryPercent = 50;
-  };
+  zramSwap.enable = false; # match nixos-infect
+  /*
+    zramSwap = {
+      enable = true;
+      priority = 100;
+      algorithm = "lz4";
+      memoryPercent = 50;
+    };
+  */
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
@@ -71,7 +74,6 @@
     extraGroups = [
       "wheel"
     ];
-
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBqQ5oSVdm2VwrRatrKCjT7jMqXQRWKk9yT2Bu1RBjHk askosia@laptop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHRzbBl2yBT8WZC9UyPkbe5WbBdq0ByQI8EERjc10Iu askosia@desktop"
